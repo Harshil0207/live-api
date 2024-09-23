@@ -26,3 +26,17 @@ con.connect(function (err) {
     }
   });
 };
+
+exports.getcustumerid = (req, res) => {
+    console.log("Api call");
+    var custumer_id = req.params.custumer_id;
+    console.log(custumer_id);
+    const sql = "SELECT * FROM tbl_custumer WHERE custumer_id = ?";
+    con.query(sql, [custumer_id], (err, rows) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.end(JSON.stringify(rows));
+      }
+    });
+  };
