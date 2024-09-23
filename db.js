@@ -42,9 +42,9 @@ exports.getcustumerid = (req, res) => {
   };
 
   exports.insert = (req, res) => {
-    const { custumer_name } = req.body;
-    var sql = "INSERT INTO tbl_custumer (custumer_name) VALUES (?)";
-    var values = [custumer_name];
+    const { custumer_name,custumer_id } = req.body;
+    var sql = "INSERT INTO tbl_custumer (custumer_id,custumer_name) VALUES (?,?)";
+    var values = [custumer_id,custumer_name];
     con.query(sql, values, (err, result) => {
       if (err) {
         console.log(err);
