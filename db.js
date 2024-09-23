@@ -56,9 +56,9 @@ exports.getcustumerid = (req, res) => {
   };
   exports.update = (req, res) => {
     const { id } = req.params;
-    const { custumer_id, custumer_name } = req.body;
+    const {  custumer_name } = req.body;
     var sql = "UPDATE tbl_custumer SET  custumer_name = ? WHERE custumer_id = ?";
-    var values = [custumer_name, custumer_id];
+    var values = [custumer_name,id];
   
     con.query(sql, values, (err, result) => {
       if (err) {
